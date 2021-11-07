@@ -12,7 +12,6 @@ function Right({ chooseTrack, spotifyApi }) {
   const { accessToken } = session
   const [recentlyPlayed, setRecentlyPlayed] = useState([])
 
-  // Recently Played Tracks...
   useEffect(() => {
     if (!accessToken) return
 
@@ -34,7 +33,6 @@ function Right({ chooseTrack, spotifyApi }) {
   return (
     <section className="p-4 pr-8 space-y-8">
       <div className="flex items-center justify-between space-x-2">
-        {/* Icons */}
         <div className="flex items-center space-x-4 border-2 border-[#262626] rounded-full h-12 py-3 px-4">
           <HiOutlineShieldCheck className="text-[#CCCCCC] text-xl" />
           <MdOutlineSettings className="text-[#CCCCCC] text-xl" />
