@@ -29,7 +29,7 @@ const Player = ({ trackUri, accessToken }) => {
   }
   return (
     <>
-      <div className="bg-[#181818] flex items-center justify-between px-5 py-2.5 rounded-t-2xl relative space-x-20 md:space-x-0 overflow-x-scroll md:overflow-x-hidden scrollbar-hide">
+      {/* <div className="bg-[#181818] flex items-center justify-between px-5 py-2.5 rounded-t-2xl relative space-x-20 md:space-x-0 overflow-x-scroll md:overflow-x-hidden scrollbar-hide">
         <div className="flex items-center">
           <img
             src={playingTrack.albumUrl}
@@ -78,32 +78,33 @@ const Player = ({ trackUri, accessToken }) => {
           <CgArrowsExpandRight className="playerIcon" />
         </div>
       </div>
+    </> */}
+      <SpotifyWebPlayer
+        styles={{
+          activeColor: '#fff',
+          bgColor: '#181818',
+          color: '#fff',
+          loaderColor: '#fff',
+          sliderColor: '#1cb954',
+          trackArtistColor: '#ccc',
+          trackNameColor: '#fff',
+          height: '70px',
+          sliderTrackColor: '#535353',
+          sliderTrackBorderRadius: '4px',
+          sliderHandleColor: '#fff',
+          errorColor: '#fff',
+        }}
+        token={accessToken}
+        showSaveIcon
+        callback={(state) => {
+          setPlay(state.isPlaying)
+        }}
+        play={play}
+        uris={trackUri ? [trackUri] : []}
+        magnifySliderOnHover={true}
+        autoPlay={true}
+      />
     </>
-    // <SpotifyWebPlayer
-    //   styles={{
-    //     activeColor: '#fff',
-    //     bgColor: '#181818',
-    //     color: '#fff',
-    //     loaderColor: '#fff',
-    //     sliderColor: '#1cb954',
-    //     trackArtistColor: '#ccc',
-    //     trackNameColor: '#fff',
-    //     height: '70px',
-    //     sliderTrackColor: '#535353',
-    //     sliderTrackBorderRadius: '4px',
-    //     sliderHandleColor: '#fff',
-    //     errorColor: '#fff',
-    //   }}
-    //   token={accessToken}
-    //   showSaveIcon
-    //   callback={(state) => {
-    //     setPlay(state.isPlaying)
-    //   }}
-    //   play={play}
-    //   uris={trackUri ? [trackUri] : []}
-    //   magnifySliderOnHover={true}
-    //   autoPlay={true}
-    // />
   )
 }
 
